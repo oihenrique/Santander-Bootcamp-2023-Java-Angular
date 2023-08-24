@@ -1,39 +1,54 @@
-function convertPokemonTypesToLi(pokemonTypes) {
-  return pokemonTypes.map(
-    (typeSlot) => `<li class="type">${typeSlot.type.name}</li>`
-  );
-}
+const pokemonList = document.getElementById("pokemonList");
+const loadMoreButton = document.getElementById("loadMoreButton");
+const maxRecords = 151;
+let offset = 0;
+const limit = 10;
 
-function convertPokemonToLi(pokemon) {
-  return `
-      <li class="pokemon">
-      <span class="number">#${pokemon.order}</span>
+function loadPokemonItens(offset, limit) {
+  pokeApi.getPokemons(offset, limit).then((pokemons = []) => {
+    const newHtml = pokemons.map((pokemon) =>
+      `
+    <li class="pokemon ${pokemon.type}">
+      <span class="number">#${pokemon.number}</span>
       <span class="name">${pokemon.name}</span>
 
       <div class="detail">
         <ol class="types">
-          ${convertPokemonTypesToLi(pokemon.types).join("")}
+          ${pokemon.types
+        .map((type) => `<li class="type ${type}">${type}</li>`)
+        .join("")}
         </ol>
 
         <img
-          src="${pokemon.sprites.other.dream_world.front_default}"
+          src="${pokemon.photo}"
           alt="${pokemon.name}"
         />
       </div>
-    </li>
-  `;
+    </li>`)
+      .join("");
+    pokemonList.innerHTML += newHtml;
+  });
 }
 
-const pokemonList = document.getElementById("pokemonList");
+loadPokemonItens(offset, limit);
 
-pokeApi.getPokemons().then((pokemons = []) => {
-  const newHtml = pokemons.map(convertPokemonToLi).join("");
-  pokemonList.innerHTML += newHtml;
+loadMoreButton.addEventListener("click", () => {
+  offset += limit;
+  const qtdRecordNextPage = offset + limit;
 
-  // const listItens = [];
+  if (qtdRecordNextPage >= maxRecords) {
+    const newLimit = maxRecords - offset;
+    loadPokemonItens(offset, newLimit)
 
-  // for (let i = 0; i < pokemons.length; i++) {
-  //   const pokemon = pokemons[i];
-  //   listItens.push(convertPokemonToLi(pokemon));
-  // }
+    loadMoreButton.parentElement.removeChild(loadMoreButton);
+  } else {
+    loadPokemonItens(offset, limit);
+  }
 });
+
+// const listItens = [];
+
+// for (let i = 0; i < pokemons.length; i++) {
+//   const pokemon = pokemons[i];
+//   listItens.push(convertPokemonToLi(pokemon));
+// }
