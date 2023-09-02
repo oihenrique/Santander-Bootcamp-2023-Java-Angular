@@ -35,3 +35,12 @@ pokeApi.getPokemons = (offset = 0, limit = 5) => {
       .catch((error) => console.error(error))
   );
 };
+
+pokeApi.getOnePokemon = (pokemonId) => {
+  const url = `https://pokeapi.co/api/v2/pokemon/${pokemonId}`;
+
+  return fetch(url)
+    .then(response => response.json())
+    .then(pokemonInfoHead => { return convertPokeApiDetailToPokemon(pokemonInfoHead) })
+    .catch(error => console.log(error))
+};

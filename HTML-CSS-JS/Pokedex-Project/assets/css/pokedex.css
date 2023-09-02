@@ -76,7 +76,6 @@
     margin: 0.5rem;
     padding: .75rem;
     border-radius: 1rem;
-
 }
 
 .pokemon .number {
@@ -86,9 +85,11 @@
     font-size: .625rem;
 }
 
-.pokemon .name {
+.name {
     color: white;
-    margin-bottom: 0;
+    text-align: left;
+    margin: 0;
+    padding: 0;
     text-transform: capitalize;
 }
 
@@ -119,6 +120,14 @@
     height: 60px;
 }
 
+.liButton {
+    border: none;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    cursor: pointer;
+}
+
 .pagination {
     display: flex;
     flex-direction: row;
@@ -136,4 +145,54 @@
     border: none;
     border-radius: 1rem;
     background-color: #6c79db;
+}
+
+/* POKEDEX INFO HEAD */
+.pokemon-detailHead {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.5rem 1.5rem .25rem 1.5rem;
+}
+
+.detailHead {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+    align-items: center;
+    max-width: 100%;
+}
+
+.nameNumberDiv {
+    display: flex;
+    justify-content: space-between;
+}
+
+.typesInfoHead {
+    display: flex;
+    flex-direction: row;
+    gap: .75rem;
+    list-style: none;
+    padding: 0;
+}
+
+.typesInfoHead li {
+    background: white;
+    opacity: 0.9;
+    padding: .3rem;
+    border-radius: .5rem;
+    filter: brightness(1.2);
+}
+
+.pokemon-detailHead img {
+    max-width: 100%;
+    height: 90px;
+    transform: scaleX(-1);
+}
+
+.pokemon-detailHead span {
+    color: white;
+    font-weight: 600;
+    padding: 0;
+    margin: 0;
 }

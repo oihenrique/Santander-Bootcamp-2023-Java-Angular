@@ -7,9 +7,14 @@ body {
     background-color: #f6f8fc;
 }
 
+.container {
+    display: flex;
+    flex-direction: row;
+}
+
 .content {
-    width: 100vw;
-    height: 100vh;
+    width: 40vw;
+    height: 80vh;
     padding: 2rem;
     background-color: white;
 }
@@ -19,6 +24,28 @@ body {
     grid-template-columns: 1fr;
     padding: 0;
     margin: 0;
+}
+
+.pokemon-detailPage {
+    display: flex;
+    flex-direction: column;
+    max-width: 20vw;
+    width: 100%;
+    height: 60vh;
+    border-radius: 1rem;
+}
+
+.pokemon-detailHead {
+    width: 100%;
+    height: 40%;
+    border-radius: 1rem 1rem 0 0;
+}
+
+.pokemon-detailInfo {
+    width: 100%;
+    height: 60%;
+    border-radius: 0 0 1rem 1rem;
+    background-color: white;
 }
 
 @media screen and (min-width: 380px) {
@@ -37,11 +64,15 @@ body {
     .content {
         max-width: 992px;
         max-height: auto;
-        margin: 1rem auto;
+        margin: 1rem 1rem 1rem auto;
         border-radius: 1rem;
     }
 
     .pokemons {
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .pokemon-detailPage {
+        margin: 6.45rem auto 1rem 1rem;
     }
 }
