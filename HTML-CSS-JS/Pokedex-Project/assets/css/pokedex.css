@@ -89,6 +89,10 @@
     font-size: 0.625rem;
 }
 
+.pokemon .name {
+    margin-bottom: .4rem;
+}
+
 .name {
     color: white;
     text-align: left;
@@ -100,6 +104,7 @@
 .pokemon .detail {
     display: flex;
     flex-direction: row;
+    gap: .5rem;
     align-items: center;
     justify-content: space-between;
 }

@@ -10,11 +10,13 @@ body {
 .container {
     display: flex;
     flex-direction: row;
+    position: relative;
 }
 
 .content {
     width: fit-content;
     height: fit-content;
+    position: relative;
     margin: 2rem 0;
     padding: 2rem;
     border-radius: 1rem;
@@ -31,6 +33,7 @@ body {
 .pokemon-detailPage {
     display: flex;
     flex-direction: column;
+    position: fixed;
     max-width: fit-content;
     width: 100%;
     height: fit-content;
@@ -62,6 +65,7 @@ body {
 
     .pokemon-detailPage {
         display: none;
+        position: inherit;
         margin: 10% auto;
     }
 }
@@ -77,6 +81,7 @@ body {
 
     .pokemon-detailPage {
         display: none;
+        position: inherit;
         margin: 10% auto;
     }
 }
@@ -88,11 +93,13 @@ body {
 
     .pokemon-detailPage {
         display: none;
+        position: inherit;
     }
 }
 
 @media screen and (min-width: 992px) {
     .content {
+        right: 35%;
         max-width: 992px;
         max-height: auto;
         margin: 1rem 1rem 1rem auto;
@@ -105,6 +112,18 @@ body {
 
     .pokemon-detailPage {
         display: block;
+        left: 65%;
+        position: fixed;
         margin: 6.45rem auto 1rem 1rem;
+    }
+}
+
+@media screen and (min-width: 1300px) {
+    .content {
+        right: 40%;
+    }
+
+    .pokemon-detailPage {
+        left: 60%;
     }
 }
