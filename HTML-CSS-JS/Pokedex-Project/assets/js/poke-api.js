@@ -59,6 +59,20 @@ async function getPokemonStats(pokemonId) {
   }
 }
 
+async function getPokemonMoves(pokemonId) {
+  const movesResponse = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`).then((moves) => moves.json());
+
+  const moves = new Moves();
+
+  moves.move1 = movesResponse.moves[0].move.name;
+  moves.move2 = movesResponse.moves[2].move.name;
+  moves.move3 = movesResponse.moves[3].move.name;
+  moves.move4 = movesResponse.moves[4].move.name;
+  moves.move5 = movesResponse.moves[5].move.name;
+  moves.move6 = movesResponse.moves[6].move.name;
+
+  return moves;
+}
 
 pokeApi.getPokemonDetail = (pokemon) => {
   return fetch(pokemon.url)

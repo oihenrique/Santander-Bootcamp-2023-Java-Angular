@@ -24,3 +24,12 @@ class Stats {
   specialDefense;
   speed;
 }
+
+class Moves {
+  move1;
+  move2;
+  move3;
+  move4;
+  move5;
+  move6;
+}
